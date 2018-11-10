@@ -63,18 +63,17 @@ database.ref().on("child_added", function(childSnapshot){
     var timeConverted = moment(trainTime, "hh:mm").subtract(1, "years");
     console.log(timeConverted);
 
-// current time
-    var currentTime = moment();
-    console.log(moment(currentTime).format("hh:mm"));
-
 // time different
     var timeDifferent = moment().diff(moment(timeConverted),"minutes");
+    console.log(timeDifferent);
 
 // time apart
     var timeRemainder = timeDifferent % trainFrequency;
+    console.log(timeRemainder);
 
 // how many minutes away
     var trainAway = trainFrequency - timeRemainder;
+    console.log(trainAway);
 
 // next train
     var arrival = moment().add(trainAway, "minutes");
